@@ -20,7 +20,6 @@ const todosSlice = createSlice({
     initialState,
     reducers: {
         AddTodo(state, action){
-            // console.log("Add todo:",action);
             todosAdapter.addOne(state, {
                 // id: state.ids.length+1,
                 id: uuid(),

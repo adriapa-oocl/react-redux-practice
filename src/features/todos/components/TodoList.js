@@ -5,8 +5,8 @@ import TodoGroup from './TodoGroup'
 function TodoList() {
     return (
         <div>
-            <div >
-                <h1>TodoList</h1>
+            <div>
+                <h1>Hello, TodoList</h1>
                 <TodoForm/>
             </div>
             <div>

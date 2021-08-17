@@ -26,7 +26,7 @@ function TodoItem(props) {
             onClick = {handeTodoClick}>
                 <li>{todo.text}
                 <span 
-                    className ="close" 
+                    className ="todoRemove" 
                     onClick = {handleTodoRemove}>x</span>
                 </li>
             </ul>            
