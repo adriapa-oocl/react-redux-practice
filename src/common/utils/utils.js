@@ -5,3 +5,7 @@ export function getAllTodoIds(todos){
 export function getTodoById(todos, id){
     return todos.find((todo) => todo.id === id);
 }
+
+export function removeTodoById(todos, id){
+    return null;
+}

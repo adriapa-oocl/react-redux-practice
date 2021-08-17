@@ -5,9 +5,14 @@ import { getTodoById } from '../../common/utils/utils';
 function TodoItem(props) {
     const todo = getTodoById(initialTodoList, props.itemId);
 
+    function removeToDo(){
+
+    }
+
     return (
         <div>
-            <div>{todo.text}</div>
+            {todo.text}
+            <button onClick>x</button>
         </div>
     )
 }

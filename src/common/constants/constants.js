@@ -9,4 +9,9 @@ export const initialTodoList = [
         text: "todo list # 2",
         done: false
     },
+    {
+        id: "3",
+        text: "todo list # 3",
+        done: false
+    },
 ];
