@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import "../styles/TodoForm.css"
 import { AddTodo } from '../reducers/todosSlice';
 
 function TodoForm() {
@@ -14,20 +13,25 @@ function TodoForm() {
     }
 
     function handleInputTextAdd(){
-        dispatch(AddTodo(inputText));
-        setText("");
-        // console.log("input text to be added: ", inputText);
+        if(inputText === ''){
+            alert("Your to-do can not be empty!");
+        }
+        else{
+            dispatch(AddTodo(inputText));
+            setText("");
+        }
+
     }
 
     return (
         <div className = "TodoForm">
-            <input
+            <input class = "inputText"
                 type = "text"
-                placeholder = "input a new todo here..."
+                placeholder = "input a new to-do here..."
                 value = {inputText}
                 onChange = {handleInputTextChange}
             ></input>
-            <button
+            <button class = "addButton"
                 onClick = {handleInputTextAdd}
             >Add</button>
         </div>
