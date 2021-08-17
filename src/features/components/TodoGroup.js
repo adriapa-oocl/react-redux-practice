@@ -1,11 +1,17 @@
 import React from 'react'
 import TodoItem from './TodoItem'
+import { initialTodoList } from '../../common/constants/constants';
+import { getAllTodoIds } from '../../common/utils/utils';
 
 function TodoGroup() {
     return (
         <div>
-            TodoGroup
-            <TodoItem/>
+            List of To Do:
+            {
+                getAllTodoIds(initialTodoList).map((id) => (
+                    <TodoItem key={id} itemId={id} />
+                ))
+            }
         </div>
     )
 }
