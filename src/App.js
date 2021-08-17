@@ -1,4 +1,4 @@
-import TodoGroup from "./features/components/TodoGroup";
+import TodoGroup from "./features/todos/components/TodoGroup";
 import './App.css';
 
 function App() {
