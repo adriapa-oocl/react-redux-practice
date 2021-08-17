@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import TodoGroup from "./features/components/TodoGroup";
 import './App.css';
 
