@@ -26,14 +26,15 @@ const todosSlice = createSlice({
             todosAdapter.addMany(state, action.payload);
         },
         ToggleTodo(state, action){
-            // const todo = state.entities[action.payload]
-            // todo.done = !todo.done;
             todosAdapter.updateOne(state, {
                 id: action.payload.id,
                 changes: action.payload.updateTodo
-            })
+            });
         },
-        ToggleTodoRemove:todosAdapter.removeOne
+        ToggleTodoRemove(state, action){
+            console.log("body:", action.payload.id);
+            todosAdapter.removeOne(state, action.payload.id);
+        }
     },
 });
 

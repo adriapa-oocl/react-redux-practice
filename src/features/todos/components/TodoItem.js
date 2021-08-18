@@ -11,22 +11,18 @@ function TodoItem(props) {
     const todoStatus = todo.done ? "done" : "";
 
     function handeTodoClick(){
-        // updateTodo(props.itemId, {done: !todo.done}).then((response) => {
-        //     dispatch(ToggleTodo({id: props.itemId, updateTodo: response.data}));
-        // });
         updateTodo(props.itemId, {done: !todo.done}).then((response) => {
-            dispatch(ToggleTodo({itemId: props.itemId, updateTodo: response.data}));
+            dispatch(ToggleTodo({id:props.itemId, updateTodo: response.data}));
         });
-        // dispatch(ToggleTodo(props.itemId));
     }
 
     function handleTodoRemove(event){
-        // deleteTodo(props.itemId).then((response) => {
-        //     console.log("response id: ", response)
-        //     dispatch(ToggleTodoRemove(props.itemId));
-        // })
+        deleteTodo(props.itemId).then((response) => {
+            dispatch(ToggleTodoRemove(response.data));
+        })
         event.stopPropagation();
-        dispatch(ToggleTodoRemove(props.itemId));
+        // event.stopPropagation();
+        // dispatch(ToggleTodoRemove(props.itemId));
     }
 
     return (
@@ -45,3 +41,36 @@ function TodoItem(props) {
 }
 
 export default TodoItem
+
+// const TodoItem = ( {itemId}) => {
+//     const todo = useSelector((state) => selectTodoById(state, itemId));
+
+//     const dispatch = useDispatch();
+
+//     const handleToDoClick = () => {
+//         updateTodo(itemId, {done: !todo.done}).then((response) => {
+//             dispatch(ToggleTodo({itemId, updateTodo:response.data}));
+//         });
+//     };
+
+//     const handleToDoRemove = (event) => {
+//         event.stopPropagation();
+//         dispatch(ToggleTodoRemove(itemId));
+//     };
+
+//     const todoStatus = todo.done ? "done" : "";
+
+//         return (
+//         <div>
+//             <ul 
+//             className = {`TodoItem-todo ${todoStatus}`}
+//             onClick = {handeTodoClick}>
+//                 <li>{todo.text}
+//                 <span 
+//                     className ="todoRemove" 
+//                     onClick = {handleTodoRemove}>x</span>
+//                 </li>
+//             </ul>            
+//         </div>
+//     )
+// };
