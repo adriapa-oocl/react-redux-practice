@@ -4,16 +4,7 @@ import { getTodos } from "../../apis/todos";
 
 
 const todosAdapter = createEntityAdapter();
-const initialState = todosAdapter.getInitialState({
-    ids: [1],
-    entities: {
-        1: {
-            id: "1",
-            text: "Finish Homework",
-            done: false,
-        },
-    },
-});
+const initialState = todosAdapter.getInitialState();
 
 const todosSlice = createSlice({
     name: "todos",
@@ -32,7 +23,6 @@ const todosSlice = createSlice({
             });
         },
         ToggleTodoRemove(state, action){
-            console.log("body:", action.payload.id);
             todosAdapter.removeOne(state, action.payload.id);
         }
     },
