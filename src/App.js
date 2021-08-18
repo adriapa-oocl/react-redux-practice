@@ -8,15 +8,8 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <ul>
-          <li>
-            <Link to = "/">go to the todo list page</Link>
-          </li>
-          <li>
-          <Link to = "/done">go to the done list page</Link>
-          </li>
-        </ul>
-        <Switch>
+          <h3><Link to = "/">Home</Link> <Link to = "/done">Completed</Link></h3>
+        <Switch className = "Sites">
           <Route exact path = "/" component = {TodoList}></Route>
           <Route exact path = "/done" component = {DoneList}></Route>
           <Route path = "*" component = {NotFoundPage}></Route>

@@ -20,7 +20,6 @@ function TodoForm() {
             dispatch(AddTodo(inputText));
             setText("");
         }
-
     }
 
     return (

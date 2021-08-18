@@ -4,20 +4,18 @@ import TodoItem from './TodoItem'
 import React from 'react'
 
 function DoneList() {
-    const doneTodoIds = useSelector(selectDoneTodo);
+    const doneTodos = useSelector(selectDoneTodo);
 
     return (
         <div>
-            <h2>Done List</h2>
-            <ul>
-                List of done todo
-            </ul>
-            <ul>
-            {doneTodoIds.map((id) => (
-                    <TodoItem key={id} itemId={id} />
+            <h1>Todo List</h1>
+            <h4>
+                List of completed todo
+            </h4>
+            {doneTodos.map((doneItem) => (
+                    <TodoItem key={doneItem.id} itemId={doneItem.id} />
                 ))
             } 
-            </ul>
         </div>
     )
 }
