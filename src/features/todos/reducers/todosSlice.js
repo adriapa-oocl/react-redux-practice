@@ -1,6 +1,4 @@
 import { createSlice, createEntityAdapter, createSelector } from "@reduxjs/toolkit";
-import { v4 as uuid } from "uuid";
-import { getTodos } from "../../apis/todos";
 
 
 const todosAdapter = createEntityAdapter();

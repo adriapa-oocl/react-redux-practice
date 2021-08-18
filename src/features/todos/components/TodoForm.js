@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { createTodo, updateTodo } from '../../apis/todos';
+import { createTodo } from '../../apis/todos';
 import { AddTodo } from '../reducers/todosSlice';
 import { Button, Input } from 'antd';
 
@@ -11,7 +11,6 @@ function TodoForm() {
 
     function handleInputTextChange(event){
         setText(event.target.value);
-        // console.log(event.target.value);
     }
 
     function handleInputTextAdd(){
