@@ -1,6 +1,6 @@
 import './App.css';
 import TodoList from "./features/todos/components/TodoList";
-import { Route, Link, BrowserRouter, Switch, HashRouter} from "react-router-dom";
+import { Route, Link, BrowserRouter, Switch} from "react-router-dom";
 import DoneList from './features/todos/components/DoneList';
 import NotFoundPage from './features/notfound/NotFoundPage';
 
