@@ -7,7 +7,6 @@ function TodoItem(props) {
     const todo = useSelector(state => selectTodoById(state, props.itemId))
 
     const dispatch = useDispatch();
-    const removeDispatch = useDispatch;
     const todoStatus = todo.done ? "done" : "";
 
     function handeTodoClick(){
