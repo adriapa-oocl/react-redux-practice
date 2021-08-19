@@ -2,9 +2,18 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { createTodo } from '../../apis/todos';
 import { AddTodo } from '../reducers/todosSlice';
-import { Button, Input } from 'antd';
+import { Input, message } from 'antd';
 
 function TodoForm() {
+    const { Search } = Input;
+
+    const addSuccess = () => {
+        message.success('Todo successfully added');
+    }
+
+    const addFail = () => {
+        message.warning('Your to-do can not be empty!');
+    }
 
     const [inputText, setText] = useState("");
     const dispatch = useDispatch();
@@ -15,19 +24,28 @@ function TodoForm() {
 
     function handleInputTextAdd(){
         if(inputText === ''){
-            alert("Your to-do can not be empty!");
+            addFail();
         }
         else{
             createTodo(inputText).then((response) => {
                 dispatch(AddTodo(response.data));
             });
+            addSuccess();
             setText("");
         }
     }
 
     return (
         <div className = "TodoForm">
-            <Input className = "inputText"
+            <Search
+                placeholder = "input a new to-do here..."
+                value = {inputText}
+                onChange = {handleInputTextChange}
+                enterButton = "Add"
+                size = "large"
+                onSearch = {handleInputTextAdd}
+            />
+            {/* <Input className = "inputText"
                 type = "text"
                 placeholder = "input a new to-do here..."
                 value = {inputText}
@@ -37,7 +55,7 @@ function TodoForm() {
                 // type = "primary"
                 className = "addButton"
                 onClick = {handleInputTextAdd}
-            >Add</Button>
+            >Add</Button> */}
         </div>
     )
 }

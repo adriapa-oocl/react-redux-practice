@@ -9,6 +9,7 @@ export const createTodo = (text) => {
 }
 
 export const updateTodo = (id, updateTodo) => {
+    console.log("test: ", updateTodo);
     return api.put(`/todos/${id}`, updateTodo);
 }
 

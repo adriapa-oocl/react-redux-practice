@@ -1,16 +1,10 @@
 import React from 'react'
 import TodoItem from './TodoItem'
-import { selectTodoIds, AddTodos } from '../reducers/todosSlice';
-import { useDispatch, useSelector } from 'react-redux';
-import { getTodos } from '../../apis/todos'
+import { selectTodoIds } from '../reducers/todosSlice';
+import { useSelector } from 'react-redux';
 
 function TodoGroup() {
     const todoIds = useSelector(selectTodoIds);
-    const dispatch = useDispatch();
-
-    getTodos().then((response) => {
-        dispatch(AddTodos(response.data))
-    })
         
     return (
         <div>

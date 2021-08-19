@@ -3,10 +3,15 @@ import { selectTodoById, ToggleTodo, ToggleTodoRemove } from '../reducers/todosS
 import { useDispatch, useSelector } from 'react-redux';
 import "../styles/TodoItem.css"
 import { deleteTodo, updateTodo } from '../../apis/todos';
+import { message } from 'antd';
 
 function TodoItem(props) {
-    const todo = useSelector(state => selectTodoById(state, props.itemId))
 
+    const removeSuccess = () => {
+        message.success('To-do item succesfully removed!');
+    }
+
+    const todo = useSelector(state => selectTodoById(state, props.itemId))
     const dispatch = useDispatch();
     const todoStatus = todo.done ? "done" : "";
 
@@ -21,6 +26,7 @@ function TodoItem(props) {
             dispatch(ToggleTodoRemove(response.data));
         })
         event.stopPropagation();
+        removeSuccess();
     };
 
     return (
